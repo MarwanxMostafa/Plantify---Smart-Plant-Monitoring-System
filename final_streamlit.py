@@ -107,7 +107,7 @@ try:
     GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 except (FileNotFoundError, KeyError):
     # This is a placeholder key. Replace it with your actual Gemini API Key.
-    GEMINI_API_KEY = "AIzaSyB46WFzo4-BvfkzTZ6EDCvH2txlFW0HXh0"
+    GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"
 
 if not GEMINI_API_KEY or GEMINI_API_KEY == "YOUR_GEMINI_API_KEY_HERE":
     st.warning(
@@ -380,4 +380,5 @@ else:
                     if cat_col and num_col:
                         grouped_df = df.groupby(cat_col)[num_col].mean().reset_index()
                         fig = px.bar(grouped_df, x=cat_col, y=num_col, title=f"Avg {num_col} by {cat_col}")
+
                         st.plotly_chart(fig, use_container_width=True)
